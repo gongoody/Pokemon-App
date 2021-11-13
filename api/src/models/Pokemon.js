@@ -9,10 +9,8 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     id:{
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4,
-      allowNull:false,
-      primaryKey: true
+      type: DataTypes.INTEGER,
+      primaryKey: true,
     },
     life:{
       type: DataTypes.INTEGER,
@@ -34,6 +32,10 @@ module.exports = (sequelize) => {
     },
     image:{
       type: DataTypes.STRING
+    },
+    createdInDb:{
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
     }
     });
 };
