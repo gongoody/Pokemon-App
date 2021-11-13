@@ -1,6 +1,7 @@
 const axios = require("axios")
 const { Router } = require('express');
 const {Type} = require("../db");
+const router = Router();
 
 const getApiData = async() =>{
     const apiUrl = await axios.get('https://pokeapi.co/api/v2/type')
@@ -12,7 +13,6 @@ const getApiData = async() =>{
     return types
 }
 
-const router = Router();
 router.get('/', async (req,res,next) =>{
     try{
         const types = await getApiData()
@@ -23,7 +23,7 @@ router.get('/', async (req,res,next) =>{
                 }
             })
         })
-        res.status(200).send(typesBd)
+        res.status(200).send(types)
     }
     catch(error){
         next(error)
